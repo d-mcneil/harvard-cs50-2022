@@ -1,0 +1,44 @@
+sort1 uses:
+bubble sort
+
+sort2 uses:
+merge sort
+
+sort3 uses:
+selection sort
+
+How do you know?:
+    I tested each algorithm 3 times against each of the 3 lists of 50,000 numbers.
+When the numbers were out of order, sort2 performed the sorting task much quicker than
+the other 2 algorithms. As the upper bound for run time for merge sort (n log n) is
+less than the lower bound for selection sort (n^2), merge sort would have a faster
+run time than selection sort in all cases. 
+    Though the lower bound for bubble sort can be as low as on the order of n,
+this would only be achieved when the list was only sorted from the beginning and the
+algorithm had been modified to not reanalyze a pair if it had already been analyzed.
+When the numbers were already sorted, sort1 performed slightly better, on average,
+than sort2. However, when the lists were randomized/reverses, sort2 completed its task
+much faster than sort1.
+    This leads me to believe that sort2 is the merge sort algorithm and that sort1
+is the bubble sort algorithm. If the numbers were already sorted, bubble sort would run
+at its lower bound, n (50,000), whereas merge sort, with big theta of 50,000 log 50,000,
+should take slightly longer.  However, when the numbers haven't been previously sorted, we
+would expect bubble sort's performace to decline steeply (as it has an upper bound of (n^2)),
+while we would expect merge sort's performance to stay roughly the same (on the order of
+n log n).
+
+
+
+
+
+sort1 random50000 - 9.186 8.317 8.592
+sort2 random50000 - 1.186 1.112 1.068
+sort3 random50000 - 4.289 4.640 4.012
+
+sort1 sorted50000 - 1.569 1.637 1.153 - avg: 1.453
+sort2 sorted50000 - 1.695 1.575 1.507 - avg: 1.592
+sort3 sorted50000 - 4.095 4.219 4.591
+
+sort1 reversed50000 - 6.984 6.973 6.794
+sort2 reversed50000 - 1.552 1.224 1.407
+sort3 reversed50000 - 5.442 4.617 4.253
